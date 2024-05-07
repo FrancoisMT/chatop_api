@@ -12,6 +12,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.multipart.support.MissingServletRequestPartException;
 
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.MalformedJwtException;
@@ -43,7 +44,7 @@ public class ControllerExceptionHandler {
 	   errorMap.put("status", HttpStatus.BAD_REQUEST);
 	        
 	   return errorMap;
-	}
+	 }
 	 
 	 @ExceptionHandler(CustomException.class) 
      public ResponseEntity<Object> handleCustomException(CustomException ex) {
@@ -66,7 +67,16 @@ public class ControllerExceptionHandler {
 	      return ResponseEntity.status(HttpStatus.UNAUTHORIZED)
 	                        .body("Invalid JWT");
 	 }
+	 
+	 @ExceptionHandler(MissingServletRequestPartException.class)
+	 public ResponseEntity<Map<String, String>> handleMissingServletRequestPartException(MissingServletRequestPartException ex) {
+	        Map<String, String> response = new HashMap<>();
+	        response.put("error", "Un paramètre requis est manquant");
+	        response.put("part", ex.getRequestPartName());
+	        response.put("message", ex.getMessage());
 
-
+	        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+	 }
+	 
 	
 }

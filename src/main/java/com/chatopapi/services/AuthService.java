@@ -52,7 +52,10 @@ public class AuthService {
 			return userRepository.findByEmail(user.getEmail())
 					.orElseThrow(() -> new RuntimeException("User not found"));
 			
+		} catch(CustomException e) {
+			throw e;
 		} catch (Exception e) {
+			e.printStackTrace();
 	        throw new CustomException("Error while saving user data", HttpStatus.BAD_REQUEST);
 		}
 		
@@ -69,7 +72,9 @@ public class AuthService {
 			authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userDTO.getEmail(), userDTO.getPassword()));			
 			return userRepository.findByEmail(user.getEmail())
 					.orElseThrow(() -> new CustomException("User not found", HttpStatus.BAD_REQUEST));				
-			
+		
+		} catch (CustomException e) {
+	        throw e;
 		} catch (AuthenticationException e) {
 	        throw new CustomException("Invalid Credentials", HttpStatus.BAD_REQUEST);
 		}

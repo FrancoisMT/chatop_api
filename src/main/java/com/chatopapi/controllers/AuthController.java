@@ -36,7 +36,7 @@ public class AuthController {
 	 }
 	 
 	 @PostMapping("/login")
-	 public ResponseEntity<JwtResponseDTO> login(@RequestBody @Valid UserDTO userDTO) throws Exception {
+	 public ResponseEntity<JwtResponseDTO> login(@RequestBody @Valid UserDTO userDTO) {
 		 User authenticatedUser = authService.login(userDTO);	
 		 String jwtToken = jwtService.generateToken(authenticatedUser);
 		 
@@ -46,7 +46,7 @@ public class AuthController {
 	 @GetMapping("/me")
 	 public ResponseEntity<UserInfoDTO> authenticatedUser() {
 		 UserInfoDTO user = authService.authenticatedUser();
-			 
+		 	 
 		 return ResponseEntity.ok(user);
 	 } 
 	 
