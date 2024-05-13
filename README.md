@@ -27,13 +27,11 @@ The ChaTop API includes the following principal features:
 4. Install MariaDB and create a database for the application.
 5. Configure the necessary environment variables in your system or within your IDE before running the application.
 
-### Necessary SQL database configuration
+### Necessary application configuration
 
-You can use this SQL script file for creating the tables in the database :
+Copy src/main/resources/application.properties.template and rename it at application.properties in the same directory. Configure it with your information or add references to your environment variables.
 
-- [SQL Script](src/main/resources/scripts/database/schema.sql)
-
-### properties settings
+### variables settings
 
 Before launching the application, please configure the following properties in the application.properties configuration file:
 
@@ -43,6 +41,12 @@ Before launching the application, please configure the following properties in t
 - security.jwt.secret-key: The secret key used to sign JWT tokens. Make sure you choose a secure and complex key. For example: my_secret_key12345578787848.
 - security.jwt.expiration-time: The expiration time of JWT tokens, in milliseconds. For example: 360000.
 - image.upload-dir: The location where images will be stored. Make sure this path is correct and accessible.
+
+### Necessary SQL database configuration
+
+You can use this SQL script file for creating the tables in the database :
+
+- [SQL Script](src/main/resources/scripts/database/schema.sql)
 
 ## Executing the application
 
