@@ -31,7 +31,7 @@ public class SpringSecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authorizeHttpRequests(auth -> auth
-                    .requestMatchers("/auth/register", "/auth/login").permitAll() 
+                    .requestMatchers("/auth/register", "/auth/login", "/swagger-ui/*", "/v3/api-docs", "/v3/api-docs/*").permitAll() 
                     .anyRequest().authenticated()) 
                 .authenticationProvider(authenticationProvider)
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)                

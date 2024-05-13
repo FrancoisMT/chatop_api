@@ -90,10 +90,6 @@ public class RentalService {
         rentalDTO.setUpdated_at(rental.getUpdatedAt());
         return rentalDTO;
     }
-	 
-	
-	
-	
 	
 	
 }
