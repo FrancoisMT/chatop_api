@@ -9,6 +9,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.chatopapi.dto.LoginRequestDTO;
 import com.chatopapi.dto.UserDTO;
 import com.chatopapi.dto.UserInfoDTO;
 import com.chatopapi.exceptions.CustomException;
@@ -38,7 +39,7 @@ public class AuthService {
 		try {
 			
 			if (userRepository.findByEmail(userDTO.getEmail()).isPresent()) {
-				throw new CustomException("Email already in use", HttpStatus.BAD_REQUEST);
+				throw new CustomException("Email already in use", HttpStatus.CONFLICT);
 			}
 			
 			User user = new User();
@@ -62,21 +63,21 @@ public class AuthService {
 		
 	 }
 	
-	 public User login(UserDTO userDTO) {
+	 public User login(LoginRequestDTO request) {
 		
 		try {
 			
 			User user = new User();
-			user.setEmail(userDTO.getEmail());
+			user.setEmail(request.getEmail());
 			
-			authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(userDTO.getEmail(), userDTO.getPassword()));			
+			authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(request.getEmail(), request.getPassword()));			
 			return userRepository.findByEmail(user.getEmail())
-					.orElseThrow(() -> new CustomException("User not found", HttpStatus.BAD_REQUEST));				
+					.orElseThrow(() -> new CustomException("User not found", HttpStatus.NOT_FOUND));				
 		
-		} catch (CustomException e) {
-	        throw e;
 		} catch (AuthenticationException e) {
 	        throw new CustomException("Invalid Credentials", HttpStatus.BAD_REQUEST);
+		} catch (CustomException e) {
+	        throw e;
 		}
 	 }
 	 
@@ -85,6 +86,7 @@ public class AuthService {
 		 try {
 			 
 			 UserInfoDTO user = new UserInfoDTO();
+			 
 			 Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 			 User currentUser = (User) authentication.getPrincipal();
 			 user.setId(currentUser.getId());
@@ -107,9 +109,4 @@ public class AuthService {
 					.orElseThrow(() -> new CustomException("User not found", HttpStatus.BAD_REQUEST));			
       }
 	  
-	  
-	 
-	 	
-	
-	
 }

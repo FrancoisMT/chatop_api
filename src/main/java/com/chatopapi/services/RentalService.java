@@ -18,6 +18,7 @@ import com.chatopapi.repository.RentalRepository;
 
 @Service
 public class RentalService {
+	
 	private final RentalRepository rentalRepository;
 	private final MediaService mediaService;
 	
@@ -25,7 +26,6 @@ public class RentalService {
 		this.rentalRepository = rentalRepository;
 		this.mediaService = mediaService;
 	}
-	
 	
 	public void createRental(Rental rental, MultipartFile picture) {
 		
