@@ -6,6 +6,7 @@ import com.chatopapi.repository.MessageRepository;
 
 @Service
 public class MessageService {
+	
 	private final MessageRepository messageRepository; 
 	
 	public MessageService(MessageRepository messageRepository) {

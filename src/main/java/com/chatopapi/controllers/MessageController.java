@@ -15,10 +15,16 @@ import com.chatopapi.response.MessageResponseHandler;
 import com.chatopapi.services.MessageService;
 import com.chatopapi.services.RentalService;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import jakarta.validation.Valid;
 
 @RestController
 public class MessageController {
+	
 	private final MessageService messageService;
 	private final RentalService rentalService;
 	
@@ -28,6 +34,16 @@ public class MessageController {
 	}
 	
 	@PostMapping(path = "/messages")
+	@Operation(summary = "POST a message", description = "This operation creates a message and returns a message.")
+	@ApiResponses(value = {
+		     @ApiResponse(responseCode = "200", description = "Rental created", 
+		    		 content = @Content(mediaType = "application/json",
+	                 schema = @Schema(implementation = MessageResponseHandler.class))),
+		     @ApiResponse(responseCode = "400", description = "Bad request", content = @Content),
+		     @ApiResponse(responseCode = "401", description = "Invalid token", content = @Content), 
+		     @ApiResponse(responseCode = "403", description = "Unauthorized", content = @Content),
+		     @ApiResponse(responseCode = "404", description = "Rental not found", content = @Content),
+	})
 	public ResponseEntity<Object> create(@RequestBody @Valid MessageDTO messageDTO) throws Exception {	
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		User currentUser = (User) authentication.getPrincipal();

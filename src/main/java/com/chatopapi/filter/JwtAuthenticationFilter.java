@@ -21,6 +21,7 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
+	
 	private final HandlerExceptionResolver handlerExceptionResolver;
 	private final JWTService jwtService;
     private final UserDetailsService userDetailsService;
