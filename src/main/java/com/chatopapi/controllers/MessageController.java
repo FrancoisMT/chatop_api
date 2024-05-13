@@ -45,6 +45,7 @@ public class MessageController {
 		     @ApiResponse(responseCode = "404", description = "Rental not found", content = @Content),
 	})
 	public ResponseEntity<Object> create(@RequestBody @Valid MessageDTO messageDTO) throws Exception {	
+		
 		Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 		User currentUser = (User) authentication.getPrincipal();
 			
