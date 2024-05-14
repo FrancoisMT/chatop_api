@@ -1,8 +1,10 @@
 package com.chatopapi.dto;
 
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public class MessageDTO {
+    @NotBlank(message = "message is required")
 	private String message;
     @NotNull(message = "Rental ID is required")
 	private Integer rental_id;

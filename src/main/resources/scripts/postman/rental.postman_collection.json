@@ -95,7 +95,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0M0B0ZXN0LmNvbSIsImlhdCI6MTcxNTA2MDIyOSwiZXhwIjoxNzE1MDYwNTg5fQ.3zEnqBZxnlK8PcdOc7dNq-KwgZ5VBQuybHrS0XO6D8k",
+									"value": "",
 									"type": "string"
 								}
 							]
@@ -133,7 +133,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0MUB0ZXN0LmNvbSIsImlhdCI6MTcxNTA2NTQ4NiwiZXhwIjoxNzE1MDY1ODQ2fQ.zYpjycDXGDJk4Wy_z1rM3OmJ3pzhSdHZKN1fXf6QZwo",
+									"value": "",
 									"type": "string"
 								}
 							]
@@ -166,7 +166,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0MUB0ZXN0LmNvbSIsImlhdCI6MTcxNTA2NTQ4NiwiZXhwIjoxNzE1MDY1ODQ2fQ.zYpjycDXGDJk4Wy_z1rM3OmJ3pzhSdHZKN1fXf6QZwo",
+									"value": "",
 									"type": "string"
 								}
 							]
@@ -174,7 +174,7 @@
 						"method": "GET",
 						"header": [],
 						"url": {
-							"raw": "localhost:3001/api/rentals/4",
+							"raw": "localhost:3001/api/rentals/1",
 							"host": [
 								"localhost"
 							],
@@ -182,7 +182,7 @@
 							"path": [
 								"api",
 								"rentals",
-								"4"
+								"1"
 							]
 						}
 					},
@@ -196,7 +196,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0MkB0ZXN0LmNvbSIsImlhdCI6MTcxNTM0MTY2OCwiZXhwIjoxNzE1MzQyMDI4fQ.Lxvc9THN86WrefYUDQSUZSPNNwvZEIf9ZBcE9JMWKS8",
+									"value": "",
 									"type": "string"
 								}
 							]
@@ -208,27 +208,27 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "name18",
+									"value": "name",
 									"type": "text"
 								},
 								{
 									"key": "surface",
-									"value": "500",
+									"value": "45",
 									"type": "text"
 								},
 								{
 									"key": "price",
-									"value": "200",
+									"value": "45",
 									"type": "text"
 								},
 								{
 									"key": "picture",
 									"type": "file",
-									"src": "/C:/Users/marco/Pictures/Saved Pictures/imagemodifiee.jpg"
+									"src": "/C:/Users/marco/Pictures/Saved Pictures/imageupdated.jpg"
 								},
 								{
 									"key": "description",
-									"value": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam a lectus eleifend, varius massa ac, mollis tortor. Quisque ipsum nulla, faucibus ac metus a, eleifend efficitur augue. Integer vel pulvinar ipsum. Praesent mollis neque sed sagittis ultricies. Suspendisse congue ligula at justo molestie, eget cursus nulla tincidunt. Pellentesque elementum rhoncus arcu, viverra gravida turpis mattis in. Maecenas tempor elementum lorem vel ultricies. Nam tempus laoreet eros, et viverra libero tincidunt a. Nunc vel nisi vulputate, sodales massa eu, varius erat.",
+									"value": "toto",
 									"type": "text"
 								}
 							]
@@ -255,7 +255,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0MUB0ZXN0LmNvbSIsImlhdCI6MTcxNTA2MjY0MSwiZXhwIjoxNzE1MDYzMDAxfQ.ARB-0w4z3wuV-3SzSFi4_Qi3sMvXrPQhaGl_WGTxDcs",
+									"value": "",
 									"type": "string"
 								}
 							]
@@ -267,17 +267,17 @@
 							"formdata": [
 								{
 									"key": "name",
-									"value": "nameNouveau",
+									"value": "newName",
 									"type": "text"
 								},
 								{
 									"key": "surface",
-									"value": "500",
+									"value": "50",
 									"type": "text"
 								},
 								{
 									"key": "price",
-									"value": "20",
+									"value": "30",
 									"type": "text"
 								},
 								{
@@ -288,7 +288,7 @@
 							]
 						},
 						"url": {
-							"raw": "localhost:3001/api/rentals/2",
+							"raw": "localhost:3001/api/rentals/1",
 							"host": [
 								"localhost"
 							],
@@ -296,7 +296,7 @@
 							"path": [
 								"api",
 								"rentals",
-								"2"
+								"1"
 							]
 						}
 					},
@@ -315,7 +315,7 @@
 							"bearer": [
 								{
 									"key": "token",
-									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0MkB0ZXN0LmNvbSIsImlhdCI6MTcxNTM0MTY2OCwiZXhwIjoxNzE1MzQyMDI4fQ.Lxvc9THN86WrefYUDQSUZSPNNwvZEIf9ZBcE9JMWKS8",
+									"value": "",
 									"type": "string"
 								}
 							]
@@ -324,7 +324,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\n    \"message\": \"mon message 2\",\n    \"user_id\": 1\n}",
+							"raw": "{\n    \"message\": \"mon message 22222 !\",\n    \"user_id\": 1,\n    \"rental_id\":1\n}",
 							"options": {
 								"raw": {
 									"language": "json"

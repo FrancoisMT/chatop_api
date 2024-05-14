@@ -12,6 +12,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.multipart.MaxUploadSizeExceededException;
 import org.springframework.web.multipart.support.MissingServletRequestPartException;
 
 import io.jsonwebtoken.ExpiredJwtException;
@@ -76,6 +77,15 @@ public class ControllerExceptionHandler {
 	        response.put("message", ex.getMessage());
 
 	        return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
+	 }
+	 
+	 @ExceptionHandler(MaxUploadSizeExceededException.class)
+	    public ResponseEntity<Map<String, Object>> handleMaxSizeException(MaxUploadSizeExceededException exc) {
+	        Map<String, Object> response = new HashMap<>();
+	        response.put("status", HttpStatus.BAD_REQUEST);
+	        response.put("message", "File size exceeds the configured maximum");
+
+	        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(response);
 	 }
 	 
 	
