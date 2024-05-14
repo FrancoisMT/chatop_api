@@ -58,7 +58,7 @@ public class MessageController {
 		
 		messageService.createMessage(message);
 			
-		return ResponseEntity.ok().body(new MessageResponseHandler("Message send with success")); 	
+		return ResponseEntity.ok().body(new MessageResponseHandler("message sent successfully")); 	
 	}
 
 }

@@ -47,13 +47,13 @@ public class RentalController {
 		     @ApiResponse(responseCode = "401", description = "Invalid token", content = @Content), 
 		     @ApiResponse(responseCode = "403", description = "Unauthorized", content = @Content)
 	})
-	public ResponseEntity<Object> create( 
+	public ResponseEntity<Object> create ( 
 			@RequestPart("name") @NotNull String name,
 	        @RequestPart("surface") @NotNull String surface,
 	        @RequestPart("price") @NotNull String price,
 	        @RequestPart("picture") @NotNull MultipartFile picture,
 	        @RequestPart("description") @NotNull String description
-	 ) {
+	 ) throws Exception {
 		
 		if (picture.isEmpty()) {
             return ResponseEntity.badRequest().body("No image provided");
@@ -93,7 +93,7 @@ public class RentalController {
             @RequestPart("name") @NotNull String name,
             @RequestPart("surface") @NotNull String surface,
             @RequestPart("price") @NotNull String price,
-            @RequestPart("description") @NotNull String description ) {
+            @RequestPart("description") @NotNull String description ) throws Exception {
 		
         Rental existingRental  = rentalService.getRentalById(id);
         
